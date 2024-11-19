@@ -39,3 +39,17 @@ def euclide(a, b):
 
 # print(euclide(60, 36))
 # print(euclide(125, 90))
+
+def euclide_etendu(a, b, u0 = 1, u1 = 0, v0 = 0, v1 = 1):
+    if not a > b and not b > 0:
+        return None
+
+    q, r = division(a, b)
+
+    if r == 0:
+        return b, u1, v1
+    
+    return euclide_etendu(b, r, u1, u0 - q*u1, v1, v0 - q*v1)
+
+# print(euclide_etendu(210, 55))
+# print(euclide_etendu(275, 78))
