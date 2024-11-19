@@ -1,4 +1,4 @@
-def divV0(a, b):
+def division(a, b):
     """
     Entrées:
         - a, int, dividende de l'opération
@@ -23,4 +23,19 @@ def divV0(a, b):
         # Retire le diviseur au reste
         r -= b
 
-    return (q, r)
+    return q, r
+
+def euclide(a, b):
+
+    if a <= b or b == 0:
+        return None
+    
+    q, r = division(a, b)
+
+    if r == 0:
+        return b
+    
+    return euclide(b, r)
+
+# print(euclide(60, 36))
+# print(euclide(125, 90))
